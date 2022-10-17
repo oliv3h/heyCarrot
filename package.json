@@ -1,12 +1,12 @@
 {
-  "name": "heyburrito",
+  "name": "heycarrot",
   "version": "1.0.0",
-  "repository": "github.com/chralp/heyburrito",
+  "repository": "github.com/oliv3h/heycarrot",
   "scripts": {
-    "start": "NODE_ENV=production ts-node ./src/server.ts",
-    "dev": "NODE_ENV=development nodemon --ignore '/test/*.ts' --watch '*.ts' --exec 'ts-node' ./src/server.ts",
+    "start": "cross-env NODE_ENV=production ts-node ./src/server.ts",
+    "dev": "SET 'NODE_ENV=development' && nodemon --ignore '/test/*.ts' --watch '*.ts' --exec 'ts-node' ./src/server.ts",
     "mockDB": "ts-node ./test/lib/mockDatabase.ts",
-    "test": "NODE_ENV=testing mocha -r ts-node/register test/*-test.ts --exit",
+    "test": "cross-env NODE_ENV=testing mocha -r ts-node/register test/*-test.ts --exit",
     "lint": "eslint --ext .ts ./src/ || exit 0",
     "docker-build": "docker build -t chralp/heyburrito . && docker tag chralp/heyburrito chralp/heyburrito",
     "docker-push": "docker push chralp/heyburrito"
@@ -31,6 +31,7 @@
     "@typescript-eslint/parser": "^2.14.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "cross-env": "^7.0.3",
     "dirty-chai": "^2.0.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^6.3.1",
